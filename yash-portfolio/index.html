@@ -6,12 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yash Garg | Portfolio</title>
 
-    <!-- Google Font -->
+    <!-- ================= GOOGLE FONT ================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ================= FONT AWESOME ================= -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- ================= CSS ================= -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -36,17 +42,20 @@
             </ul>
 
             <div class="nav-buttons">
-                <a href="#" class="resume-btn">Resume</a>
-                <button class="ai-btn" id="open-ai">🤖 Ask AI</button>
+                <a href="assets/resume.pdf" class="resume-btn" download>Resume</a>
+
+                <button class="ai-btn" id="open-ai">
+                    🤖 Ask AI
+                </button>
             </div>
 
         </nav>
 
     </header>
 
-    <!-- ================= HERO SECTION ================= -->
-
     <main>
+
+        <!-- ================= HERO SECTION ================= -->
 
         <section class="hero" id="home">
 
@@ -70,17 +79,33 @@
                 </p>
 
                 <div class="hero-buttons">
-                    <a href="#projects" class="primary-btn">Explore My Work</a>
-                   <a href="assets/resume.pdf" class="secondary-btn" download>
-                    Download Resume
+                    <a href="#projects" class="primary-btn">
+                        Explore My Work
+                    </a>
+
+                    <a href="assets/resume.pdf" class="secondary-btn" download>
+                        Download Resume
                     </a>
                 </div>
 
                 <div class="social-links">
-                    <a href="https://github.com/ygarg5946-collab">GitHub</a>
-                    <a href="https://www.linkedin.com/in/yash-garg-a23093388/">LinkedIn</a>
-                    <a href="https://leetcode.com/u/Yash_Garg111/">LeetCode</a>
-                    <a href="https://codeforces.com/profile/Yash_Garg777">Codeforces</a>
+
+                    <a href="https://github.com/YOUR_GITHUB" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/in/YOUR_LINKEDIN" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fas fa-code"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fas fa-laptop-code"></i>
+                    </a>
+
                 </div>
 
             </div>
@@ -99,57 +124,141 @@
 
         </section>
 
-    </main>
+        <!-- ================= ABOUT SECTION ================= -->
 
-    <!-- JavaScript -->
-    <script src="js/app.js"></script>
+        <section class="about" id="about">
 
-    <!-- ================= ABOUT SECTION ================= -->
-    <!-- ================= ABOUT SECTION ================= -->
+            <div class="section-title">
+                <span>ABOUT ME</span>
+                <h2>Get to know me.</h2>
+            </div>
 
-<section class="about" id="about">
+            <div class="about-container">
+
+                <div class="about-image">
+                    <img src="images/profile.png" alt="Yash Garg">
+                </div>
+
+                <div class="about-content">
+
+                    <h3>Who am I?</h3>
+
+                    <p>
+                        I'm Yash Garg, a Computer Science sophomore at
+                        MNNIT Allahabad. I enjoy building modern web
+                        applications, solving DSA problems and exploring AI/ML.
+                    </p>
+
+                    <div class="about-info">
+
+                        <div class="info-card">
+                            <h4>Education</h4>
+                            <p>MNNIT Allahabad</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Location</h4>
+                            <p>Punjab, India</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Email</h4>
+                            <p>your@email.com</p>
+                        </div>
+
+                        <div class="info-card">
+                            <h4>Open To</h4>
+                            <p>Internships</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= SKILLS SECTION ================= -->
+
+        <section class="skills" id="skills">
+
+            <div class="section-title">
+                <span>SKILLS</span>
+                <h2>Technologies I Work With.</h2>
+            </div>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <h3>C++</h3>
+                    <p>Problem Solving & DSA</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>HTML5</h3>
+                    <p>Semantic & Responsive Layouts</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>CSS3</h3>
+                    <p>Flexbox, Grid & Animations</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>JavaScript</h3>
+                    <p>DOM & ES6</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Git & GitHub</h3>
+                    <p>Version Control</p>
+                </div>
+
+                <div class="skill-card">
+                    <h3>AI / ML</h3>
+                    <p>Currently Learning</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= PROJECTS SECTION ================= -->
+
+<section class="projects" id="projects">
 
     <div class="section-title">
-        <span>ABOUT ME</span>
-        <h2>Get to know me.</h2>
+        <span>PROJECTS</span>
+        <h2>Featured Projects.</h2>
     </div>
 
-    <div class="about-container">
+    <div class="projects-container">
 
-        <div class="about-image">
-            <img src="images/profile.png" alt="Yash Garg">
-        </div>
+        <div class="project-card">
 
-        <div class="about-content">
+            <div class="project-image">
+                <img src="images/campuscash.png" alt="CampusCash">
+            </div>
 
-            <h3>Who am I?</h3>
+            <div class="project-content">
 
-            <p>
-                I'm Yash Garg, a Computer Science sophomore at MNNIT Allahabad.
-                I enjoy building modern web applications, solving DSA problems,
-                and exploring AI/ML.
-            </p>
+                <h3>CampusCash</h3>
 
-            <div class="about-info">
+                <p>
+                    A student expense tracker that helps manage budgets,
+                    monitor spending and visualize expenses.
+                </p>
 
-                <div class="info-card">
-                    <h4>Education</h4>
-                    <p>MNNIT Allahabad</p>
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JavaScript</span>
                 </div>
 
-                <div class="info-card">
-                    <h4>Location</h4>
-                    <p>Punjab, India</p>
-                </div>
-
-                <div class="info-card">
-                    <h4>Email</h4>
-                    <p>your@email.com</p>
-                </div>
-
-                <div class="info-card">
-                    <h4>Open To</h4>
-                    <p>Internships</p>
+                <div class="project-buttons">
+                    <a href="#">Live Demo</a>
+                    <a href="#">GitHub</a>
                 </div>
 
             </div>
@@ -160,11 +269,16 @@
 
 </section>
 
-    <!-- Section SKills -->
-     <section id="skills"></section>
+    </main>
 
-    <!-- Section Projects -->
-     <section id="projects"></section>
+    <!-- ================= GSAP ================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="js/app.js"></script>
+
 </body>
 
 </html>
