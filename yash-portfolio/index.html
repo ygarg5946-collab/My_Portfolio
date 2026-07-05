@@ -16,13 +16,19 @@
     <!-- ================= FONT AWESOME ================= -->
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
     <!-- ================= CSS ================= -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <!-- ================= SCROLL PROGRESS ================= -->
 
+    <div class="progress-bar" id="progressBar"></div>
     <!-- ================= NAVBAR ================= -->
 
     <header>
@@ -47,6 +53,10 @@
                 <button class="ai-btn" id="open-ai">
                     🤖 Ask AI
                 </button>
+            </div>
+
+            <div class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
             </div>
 
         </nav>
@@ -158,17 +168,17 @@
 
                         <div class="info-card">
                             <h4>Location</h4>
-                            <p>Punjab, India</p>
+                            <p>Prayagraj, Uttar Pradesh, India</p>
                         </div>
 
                         <div class="info-card">
                             <h4>Email</h4>
-                            <p>your@email.com</p>
+                            <p>ygarg5946@email.com</p>
                         </div>
 
                         <div class="info-card">
                             <h4>Open To</h4>
-                            <p>Internships</p>
+                            <p>Internships , Collaborations</p>
                         </div>
 
                     </div>
@@ -179,86 +189,141 @@
 
         </section>
 
-        <!-- ================= SKILLS SECTION ================= -->
+        <!-- ================= TECH STACK SECTION ================= -->
 
-        <section class="skills" id="skills">
-
-            <div class="section-title">
-                <span>SKILLS</span>
-                <h2>Technologies I Work With.</h2>
-            </div>
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-                    <h3>C++</h3>
-                    <p>Problem Solving & DSA</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>HTML5</h3>
-                    <p>Semantic & Responsive Layouts</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>CSS3</h3>
-                    <p>Flexbox, Grid & Animations</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>JavaScript</h3>
-                    <p>DOM & ES6</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>Git & GitHub</h3>
-                    <p>Version Control</p>
-                </div>
-
-                <div class="skill-card">
-                    <h3>AI / ML</h3>
-                    <p>Currently Learning</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ================= PROJECTS SECTION ================= -->
-
-<section class="projects" id="projects">
+<section class="tech-stack" id="skills">
 
     <div class="section-title">
-        <span>PROJECTS</span>
-        <h2>Featured Projects.</h2>
+        <span>TECH STACK</span>
+        <h2>Technologies I Work With.</h2>
     </div>
 
-    <div class="projects-container">
+    <div class="tech-grid">
 
-        <div class="project-card">
+        <!-- Languages -->
 
-            <div class="project-image">
-                <img src="images/campuscash.png" alt="CampusCash">
+        <div class="tech-category">
+
+            <h3>Languages</h3>
+
+            <div class="tech-items">
+
+                <div class="tech-item">
+                    <i class="devicon-c-plain colored"></i>
+                    <span>C</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-cplusplus-plain colored"></i>
+                    <span>C++</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-python-plain colored"></i>
+                    <span>Python</span>
+                </div>
+
             </div>
 
-            <div class="project-content">
+        </div>
 
-                <h3>CampusCash</h3>
+        <!-- Frontend -->
 
-                <p>
-                    A student expense tracker that helps manage budgets,
-                    monitor spending and visualize expenses.
-                </p>
+        <div class="tech-category">
 
-                <div class="tech-stack">
-                    <span>HTML</span>
-                    <span>CSS</span>
+            <h3>Frontend</h3>
+
+            <div class="tech-items">
+
+                <div class="tech-item">
+                    <i class="devicon-html5-plain colored"></i>
+                    <span>HTML5</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-css3-plain colored"></i>
+                    <span>CSS3</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-javascript-plain colored"></i>
                     <span>JavaScript</span>
                 </div>
 
-                <div class="project-buttons">
-                    <a href="#">Live Demo</a>
-                    <a href="#">GitHub</a>
+            </div>
+
+        </div>
+
+        <!-- Competitive Programming -->
+
+        <div class="tech-category">
+
+            <h3>Competitive Programming</h3>
+
+            <div class="tech-items">
+
+                <div class="tech-item">
+                    <i class="fas fa-code"></i>
+                    <span>LeetCode</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Codeforces</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Tools -->
+
+        <div class="tech-category">
+
+            <h3>Tools</h3>
+
+            <div class="tech-items">
+
+                <div class="tech-item">
+                    <i class="devicon-git-plain colored"></i>
+                    <span>Git</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-github-original"></i>
+                    <span>GitHub</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-vscode-plain colored"></i>
+                    <span>VS Code</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Currently Learning -->
+
+        <div class="tech-category">
+
+            <h3>Currently Learning</h3>
+
+            <div class="tech-items">
+
+                <div class="tech-item">
+                    <i class="devicon-react-original colored"></i>
+                    <span>React</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="devicon-nodejs-plain colored"></i>
+                    <span>Node.js</span>
+                </div>
+
+                <div class="tech-item">
+                    <i class="fas fa-robot"></i>
+                    <span>AI / ML</span>
                 </div>
 
             </div>
@@ -269,8 +334,205 @@
 
 </section>
 
+<!-- now comes to CONTACT SECTION -->
+<!-- ================= CONTACT SECTION ================= -->
+
+<section class="contact" id="contact">
+
+    <div class="section-title">
+        <span>CONTACT</span>
+        <h2>Let's Work Together.</h2>
+    </div>
+
+    <div class="contact-wrapper">
+
+        <div class="contact-left">
+
+            <p class="contact-text">
+                I'm always open to internships, collaborations, freelance work,
+                or just a friendly conversation.
+            </p>
+
+            <div class="contact-cards">
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>ygarg5946@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-location-dot"></i>
+                    </div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>Prayagraj, Uttar Pradesh, India</p>
+                    </div>
+                </div>
+
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h4>Available For</h4>
+                        <p>Internships, Open Source, Freelance</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contact-social">
+
+                <a href="#" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+
+                <a href="#" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+                <a href="#" target="_blank" aria-label="LeetCode">
+                    <i class="fas fa-code"></i>
+                </a>
+
+                <a href="#" target="_blank" aria-label="Codeforces">
+                    <i class="fas fa-laptop-code"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <form class="contact-form">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" rows="6" placeholder="Write your message here..."></textarea>
+            </div>
+
+            <button type="submit" class="contact-btn">
+                Send Message
+                <i class="fas fa-paper-plane"></i>
+            </button>
+
+            <p class="contact-note">
+                <i class="fas fa-shield-halved"></i>
+                Your details stay private. I'll reply as soon as possible.
+            </p>
+
+        </form>
+
+    </div>
+
+</section>
+
+
     </main>
 
+<!-- ===== ab hai FOOTER =======-->
+ <footer class="footer">
+    <div class="footer-content">
+        <h2>Yash Garg</h2>
+
+        <p>
+            Building Tech,solving problems,
+            and continuously learning new technologies...
+        </p>
+
+        <div class="footer-social">
+
+            <a href="#" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="#" target="_blank">
+                <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-code"></i>
+            </a>
+
+            <a href="#">
+                <i class="fas fa-laptop-code"></i>
+            </a>
+        </div>
+
+        <div class="footer-line">
+            <p class="copyright">
+                  © 2026 Yash Garg • Made with ❤️ using HTML, CSS & JavaScript
+            </p>
+        </div>
+    </div>
+ </footer>
+<!-- ================= AI TERMINAL ================= -->
+
+<div class="terminal-overlay" id="terminalOverlay">
+
+    <div class="terminal">
+
+        <!-- ================= TERMINAL HEADER ================= -->
+
+        <div class="terminal-header">
+
+            <div class="terminal-dots">
+
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+
+            </div>
+
+            <h3>Yash AI Terminal</h3>
+
+            <button id="closeTerminal">
+
+                <i class="fas fa-times"></i>
+
+            </button>
+
+        </div>
+
+        <!-- ================= TERMINAL BODY ================= -->
+
+        <div class="terminal-body" id="terminalBody">
+
+        </div>
+
+        <!-- ================= TERMINAL INPUT ================= -->
+
+        <div class="terminal-input">
+
+            <span>&gt;</span>
+
+            <input
+                type="text"
+                id="terminalInput"
+                placeholder="Type a command..."
+                autocomplete="off"
+            >
+
+        </div>
+
+    </div>
+
+</div>
     <!-- ================= GSAP ================= -->
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
