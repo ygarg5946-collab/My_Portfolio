@@ -6,6 +6,7 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const { GoogleGenAI } = require("@google/genai");
+const buildPrompt = require("./prompt");
 
 
 /* ==========================================
@@ -16,7 +17,7 @@ dotenv.config();
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY
@@ -61,40 +62,23 @@ app.post("/chat", async (req, res) => {
 
         }
 
+        const prompt = buildPrompt(message);
+
         const response = await ai.models.generateContent({
 
             model: "gemini-2.5-flash",
 
-            contents: `
-You are Yash Garg's AI Portfolio Assistant.
+            contents: prompt,
 
-Only answer questions related to Yash Garg.
+            config: {
 
-Information about Yash:
+                temperature: 0.2,
 
-- Computer Science Sophomore at MNNIT Allahabad
-- Competitive Programmer
-- Full Stack Developer
-- AI/ML Enthusiast
+                topP: 0.8,
 
-Skills:
-- C++
-- C
-- HTML
-- CSS
-- JavaScript
-- Git
-- GitHub
+                maxOutputTokens: 350
 
-Projects:
-- Gojo Hollow Purple
-- Personal Portfolio
-
-If someone asks unrelated questions, politely say that you only answer questions related to Yash's portfolio.
-
-User Question:
-${message}
-`
+            }
 
         });
 
@@ -108,11 +92,13 @@ ${message}
 
     catch (error) {
 
-        console.error("Gemini Error:", error);
+        console.error("Gemini Error:");
+
+        console.error(error);
 
         res.status(500).json({
 
-            reply: "Something went wrong while communicating with Gemini."
+            reply: "Sorry, something went wrong while generating the response."
 
         });
 

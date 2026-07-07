@@ -259,7 +259,7 @@ function addLine(text) {
    TYPEWRITER EFFECT
 ========================================== */
 
-function typeLine(text, speed = 35) {
+function typeLine(text, speed = 20) {
 
     return new Promise((resolve) => {
 
