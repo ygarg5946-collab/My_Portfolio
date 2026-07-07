@@ -747,3 +747,120 @@ ScrollTrigger.create({
     }
 
 });
+
+
+/* ==========================================
+   GSAP - LEARNING JOURNEY
+========================================== */
+
+gsap.registerPlugin(ScrollTrigger);
+
+/* ==========================================
+   MASTER TIMELINE
+========================================== */
+
+const journeyTL = gsap.timeline({
+
+    scrollTrigger:{
+
+        trigger:".journey",
+
+        start:"top 72%",
+
+        once:true
+
+    }
+
+});
+
+/* ==========================================
+   TIMELINE LINE
+========================================== */
+
+journeyTL.from(".timeline-line",{
+
+    scaleY:0,
+
+    transformOrigin:"top",
+
+    duration:1.4,
+
+    ease:"power2.out"
+
+});
+
+/* ==========================================
+   TIMELINE ITEMS
+========================================== */
+
+journeyTL.from(".timeline-item",{
+
+    opacity:0,
+
+    x:40,
+
+    duration:.7,
+
+    stagger:.18,
+
+    ease:"power3.out"
+
+}, "-=1");
+
+
+
+/* ==========================================
+   ACTIVE DOT PULSE
+========================================== */
+
+gsap.to(".timeline-dot.active",{
+
+    scale:1.35,
+
+    boxShadow:"0 0 0 14px rgba(34,197,94,.08), 0 0 30px rgba(34,197,94,.6)",
+
+    duration:1.3,
+
+    repeat:-1,
+
+    yoyo:true,
+
+    ease:"power1.inOut"
+
+});
+
+/* ==========================================
+   CARD HOVER (PARALLAX)
+========================================== */
+
+document.querySelectorAll(".timeline-card").forEach(card=>{
+
+    card.addEventListener("mouseenter",()=>{
+
+        gsap.to(card,{
+
+            y:-8,
+
+            duration:.25,
+
+            ease:"power2.out"
+
+        });
+
+    });
+
+    card.addEventListener("mouseleave",()=>{
+
+        gsap.to(card,{
+
+            y:0,
+
+            duration:.25,
+
+            ease:"power2.out"
+
+        });
+
+    });
+
+});
