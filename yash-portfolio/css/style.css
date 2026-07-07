@@ -11,9 +11,19 @@
     --gray:#6B7280;
     --border:#E5E7EB;
     --primary:#2563EB;
+    --card:#FFFFFF;
 }
 
+/* ================= DARK THEME ================= */
 
+body.dark{
+    --bg:#0F172A;
+    --text:#F8FAFC;
+    --gray:#CBD5E1;
+    --border:#334155;
+    --primary:#3B82F6;
+    --card:#1E293B;
+}
 /* ================= GLOBAL CSS ================= */
 
 *{
@@ -26,13 +36,48 @@ html{
     scroll-behavior:smooth;
 }
 
-body {
-    font-family: 'Manrope', sans-serif;
+body{
+
+    font-family:'Manrope',sans-serif;
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    transition:.35s;
+
+}
+
+/* ================= BACKGROUND EFFECT ================= */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
     background:
-        radial-gradient(circle at top right, #DBEAFE 0%, transparent 35%),
-        radial-gradient(circle at bottom left, #EDE9FE 0%, transparent 35%),
-        var(--bg);
-    color: var(--text);
+
+        radial-gradient(circle at top right,#DBEAFE 0%,transparent 35%),
+
+        radial-gradient(circle at bottom left,#EDE9FE 0%,transparent 35%);
+
+    z-index:-1;
+
+    transition:.35s;
+
+}
+
+body.dark::before{
+
+    background:
+
+        radial-gradient(circle at top right,#1E3A8A 0%,transparent 35%),
+
+        radial-gradient(circle at bottom left,#312E81 0%,transparent 35%);
+
 }
 
 /* ================= SCROLL PROGRESS ================= */
@@ -72,7 +117,7 @@ body {
     top:0;
     left:0;
 
-    background:white;
+    background:var(--bg);
     border-bottom:1px solid var(--border);
     z-index:1000;
 }
@@ -132,6 +177,42 @@ body {
 
 .ai-btn:hover{
     transform:translateY(-2px);
+}
+
+
+/* ================= THEME BUTTON ================= */
+
+.theme-btn{
+
+    width:48px;
+    height:48px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--card);
+
+    border:1px solid var(--border);
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:var(--text);
+
+    transition:.3s;
+
+}
+
+.theme-btn:hover{
+
+    background:var(--primary);
+
+    color:white;
+
+    transform:translateY(-2px);
+
 }
 /* ================= ACTIVE NAV ================= */
 
@@ -252,8 +333,8 @@ body {
     height: 420px;
     border-radius: 50%;
     overflow: hidden;
-    background: white;
-    border: 8px solid white;
+    background:var(--card);
+    border: 8px solid var(--card);
 
     box-shadow:
         0 20px 60px rgba(37, 99, 235, 0.18),
@@ -285,7 +366,7 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: white;
+    background: var(--card);
     border: 1px solid var(--border);
 
     display: flex;
@@ -379,7 +460,7 @@ body {
 
 .info-card{
     padding: 20px;
-    background: white;
+    background:var(--card);
     border: 1px solid var(--border);
     border-radius: 16px;
 }
@@ -406,7 +487,7 @@ body {
 }
 
 .tech-category {
-    background: white;
+    background:var(--card);
     border: 1px solid var(--border);
     border-radius: 20px;
     padding: 30px;
@@ -520,7 +601,7 @@ body {
     align-items:center;
     gap:18px;
     padding:22px;
-    background:white;
+    background:var(--card);
     border:1px solid var(--border);
     border-radius:18px;
     transition:.3s;
@@ -568,7 +649,7 @@ body {
     justify-content:center;
     align-items:center;
     text-decoration:none;
-    background:white;
+    background: var(--card);
     border:1px solid var(--border);
     color:var(--text);
     transition:.3s;
@@ -581,7 +662,7 @@ body {
 }
 
 .contact-form{
-    background:white;
+    background:var(--card);
     padding:40px;
     border-radius:24px;
     border:1px solid var(--border);
@@ -608,7 +689,7 @@ body {
     border:1px solid var(--border);
     font-size:16px;
     font-family:inherit;
-    background:#fff;
+    background:var(--card);
     color:var(--text);
     outline:none;
     transition:.3s;

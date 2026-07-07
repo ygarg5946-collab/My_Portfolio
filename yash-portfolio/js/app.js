@@ -179,7 +179,35 @@ terminalOverlay.addEventListener("click", (e) => {
 
 });
 
+/* ==========================================
+   DARK MODE
+========================================== */
 
+const themeBtn = document.querySelector("#themeBtn");
+
+themeBtn.addEventListener("click", () => {
+
+    document.body.classList.toggle("dark");
+
+    const icon = themeBtn.querySelector("i");
+
+    if(document.body.classList.contains("dark")){
+
+        icon.classList.remove("fa-moon");
+
+        icon.classList.add("fa-sun");
+
+    }
+
+    else{
+
+        icon.classList.remove("fa-sun");
+
+        icon.classList.add("fa-moon");
+
+    }
+
+});
 
 /* ==========================================
    TERMINAL COMMANDS
@@ -264,35 +292,49 @@ function typeLine(text, speed = 35) {
     });
 
 }
+
 /* ==========================================
-   RUN COMMAND
+   GEMINI API
 ========================================== */
 
-function runCommand(command) {
+async function askGemini(message){
 
-    if (command === "help") {
+    try{
 
-        addLine("");
+        const response = await fetch("http://localhost:5000/chat",{
 
-        addLine("Available Commands:");
+            method:"POST",
 
-        addLine("whoami");
+            headers:{
 
-        addLine("skills");
+                "Content-Type":"application/json"
 
-        addLine("education");
+            },
 
-        addLine("contact");
+            body:JSON.stringify({
 
-        addLine("resume");
+                message:message
 
-        addLine("clear");
+            })
 
-        addLine("");
+        });
+
+        const data = await response.json();
+
+        return data.reply;
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        return "Unable to connect to AI server.";
 
     }
 
 }
+
 
 /* ==========================================
    COMMAND ALIASES
@@ -399,15 +441,17 @@ const commands = {
    RUN COMMAND
 ========================================== */
 
-function runCommand(command){
-
+async function runCommand(command){
 
     /* ---------- Check Aliases ---------- */
 
-    if (aliases[command]) {
+    if(aliases[command]){
 
         command = aliases[command];
+
     }
+
+    /* ---------- Clear ---------- */
 
     if(command==="clear"){
 
@@ -417,38 +461,45 @@ function runCommand(command){
 
     }
 
-   if (commands[command]) {
+    /* ---------- Local Commands ---------- */
 
-    addLine("");
-    addLine("Thinking...");
-
-    setTimeout(() => {
-
-        terminalBody.lastChild.remove();
-
-        commands[command].forEach(function (line) {
-
-            addLine(line);
-
-        });
+    if(commands[command]){
 
         addLine("");
 
-    }, 700);
+        addLine("Thinking...");
 
-}
+        setTimeout(()=>{
 
-    else{
+            terminalBody.lastChild.remove();
 
-        addLine("");
+            commands[command].forEach(function(line){
 
-        addLine("Command not found.");
+                addLine(line);
 
-        addLine("Type 'help'.");
+            });
 
-        addLine("");
+            addLine("");
+
+        },700);
+
+        return;
 
     }
+
+    /* ---------- Gemini ---------- */
+
+    addLine("");
+
+    addLine("Thinking...");
+
+    const reply = await askGemini(command);
+
+    terminalBody.lastChild.remove();
+
+    await typeLine(reply);
+
+    addLine("");
 
 }
 
