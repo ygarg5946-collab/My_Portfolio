@@ -664,3 +664,86 @@ window.addEventListener("scroll", () => {
     progressBar.style.width = progress + "%";
 
 });
+
+/* ==========================================
+   GSAP ACHIEVEMENT ANIMATION
+========================================== */
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".achievement-card",{
+
+    scrollTrigger:{
+
+        trigger:".achievements",
+
+        start:"top 75%"
+
+    },
+
+    opacity:0,
+
+    y:60,
+
+    scale:.9,
+
+    duration:.8,
+
+    stagger:.18,
+
+    ease:"power3.out"
+
+});
+
+
+/* ==========================================
+   GSAP COUNTER
+========================================== */
+
+ScrollTrigger.create({
+
+    trigger:".achievements",
+
+    start:"top 75%",
+
+    once:true,
+
+    onEnter:()=>{
+
+        document.querySelectorAll(".counter").forEach(counter=>{
+
+            const target=parseFloat(counter.dataset.target);
+
+            let obj={value:0};
+
+            gsap.to(obj,{
+
+                value:target,
+
+                duration:2,
+
+                ease:"power2.out",
+
+                onUpdate(){
+
+                    if(target%1!==0){
+
+                        counter.textContent=obj.value.toFixed(2);
+
+                    }
+
+                    else{
+
+                        counter.textContent=Math.floor(obj.value)+"+";
+
+                    }
+
+                }
+
+            });
+
+        });
+
+    }
+
+});
