@@ -984,6 +984,8 @@ Current Achievements
 
 • Solved more than 400 problems on LeetCode
 
+• CPI till 2nd semester 9.25/10
+
 • Achieved Codeforces Pupil Rating
 
 • Built multiple real-world projects

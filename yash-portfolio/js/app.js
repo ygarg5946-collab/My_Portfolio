@@ -864,3 +864,4 @@ document.querySelectorAll(".timeline-card").forEach(card=>{
     });
 
 });
+
