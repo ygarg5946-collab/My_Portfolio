@@ -184,30 +184,92 @@ terminalOverlay.addEventListener("click", (e) => {
 ========================================== */
 
 const themeBtn = document.querySelector("#themeBtn");
+let vantaEffect = null;
 
-themeBtn.addEventListener("click", () => {
+function getCurrentTheme() {
 
-    document.body.classList.toggle("dark");
+    return document.documentElement.classList.contains("dark")
+        ? "dark"
+        : "light";
 
-    const icon = themeBtn.querySelector("i");
+}
 
-    if(document.body.classList.contains("dark")){
+function getVantaOptions(theme) {
 
-        icon.classList.remove("fa-moon");
+    const isDark = theme === "dark";
 
-        icon.classList.add("fa-sun");
+    return {
+        el: "#vanta-bg",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: isDark ? 0x60a5fa : 0x2563eb,
+        backgroundColor: isDark ? 0x0f172a : 0xfafafa,
+        points: 10.0,
+        maxDistance: 22.0,
+        spacing: 18.0,
+        showDots: false
+    };
 
+}
+
+function initVantaBackground() {
+
+    const bg = document.querySelector("#vanta-bg");
+
+    if (!bg || !window.VANTA || !window.THREE) {
+        return;
     }
 
-    else{
-
-        icon.classList.remove("fa-sun");
-
-        icon.classList.add("fa-moon");
-
+    if (vantaEffect && typeof vantaEffect.destroy === "function") {
+        vantaEffect.destroy();
     }
 
-});
+    vantaEffect = window.VANTA.NET(getVantaOptions(getCurrentTheme()));
+
+}
+
+function applyTheme(theme) {
+
+    const isDark = theme === "dark";
+
+    document.documentElement.classList.toggle("dark", isDark);
+
+    if (themeBtn) {
+        const icon = themeBtn.querySelector("i");
+
+        if (icon) {
+            icon.classList.toggle("fa-moon", !isDark);
+            icon.classList.toggle("fa-sun", isDark);
+        }
+    }
+
+    try {
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    } catch (error) {}
+
+    initVantaBackground();
+
+}
+
+try {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    applyTheme(savedTheme);
+} catch (error) {
+    applyTheme("light");
+}
+
+if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+        const nextTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
+        applyTheme(nextTheme);
+    });
+}
+
 
 /* ==========================================
    TERMINAL COMMANDS

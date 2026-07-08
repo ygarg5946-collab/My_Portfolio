@@ -12,17 +12,46 @@
     --border:#E5E7EB;
     --primary:#2563EB;
     --card:#FFFFFF;
+    --success-bg:#ECFDF3;
+    --success-text:#16A34A;
+    --soft-surface:#F3F4F6;
+    --soft-surface-2:#EEF4FF;
+    --heading-soft:#374151;
+    --button-bg:#111827;
+    --button-text:#FFFFFF;
+    --footer-bg:#111827;
+    --footer-surface:#1F2937;
+    --footer-text:#D1D5DB;
+    --footer-muted:#9CA3AF;
+    --terminal-bg:#0F172A;
+    --terminal-header:#1E293B;
 }
 
 /* ================= DARK THEME ================= */
 
-body.dark{
+html.dark{
     --bg:#0F172A;
     --text:#F8FAFC;
     --gray:#CBD5E1;
     --border:#334155;
     --primary:#3B82F6;
     --card:#1E293B;
+
+    --success-bg:rgba(16,185,129,.12);
+    --success-text:#86EFAC;
+    --soft-surface:#334155;
+    --soft-surface-2:#1E3A8A;
+    --heading-soft:#CBD5E1;
+    --button-bg:#F8FAFC;
+    --button-text:#0F172A;
+    --footer-bg:#020617;
+    --footer-surface:#1E293B;
+    --footer-text:#D1D5DB;
+    --footer-muted:#94A3B8;
+    --terminal-bg:#0F172A;
+    --terminal-header:#1E293B;
+    color-scheme:dark;
+
 }
 /* ================= GLOBAL CSS ================= */
 
@@ -37,6 +66,12 @@ html{
 }
 
 body{
+
+    position:relative;
+
+    isolation:isolate;
+
+    overflow-x:hidden;
 
     font-family:'Manrope',sans-serif;
 
@@ -70,13 +105,27 @@ body::before{
 
 }
 
-body.dark::before{
+html.dark body::before{
 
     background:
 
         radial-gradient(circle at top right,#1E3A8A 0%,transparent 35%),
 
         radial-gradient(circle at bottom left,#312E81 0%,transparent 35%);
+
+}
+
+/* ================= VANTA BACKGROUND ================= */
+
+#vanta-bg{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-2;
+
+    pointer-events:none;
 
 }
 
@@ -162,15 +211,15 @@ body.dark::before{
 }
 
 .resume-btn:hover{
-    background:#F3F4F6;
+    background:var(--soft-surface, #F3F4F6);
 }
 
 .ai-btn{
     padding:12px 22px;
     border:none;
     border-radius:10px;
-    background:var(--text);
-    color:white;
+    background:var(--button-bg, var(--text));
+    color:var(--button-text, white);
     cursor:pointer;
     transition:.3s;
 }
@@ -256,8 +305,8 @@ body.dark::before{
 .available{
     display:inline-block;
     padding:8px 16px;
-    background:#ECFDF3;
-    color:#16A34A;
+    background:var(--success-bg, #ECFDF3);
+    color:var(--success-text, #16A34A);
     border-radius:30px;
     font-size:14px;
     font-weight:600;
@@ -278,7 +327,7 @@ body.dark::before{
 .hero-content h2{
     font-size:32px;
     font-weight:600;
-    color:#374151;
+    color:var(--heading-soft, #374151);
     margin-bottom:20px;
 }
 
@@ -305,8 +354,8 @@ body.dark::before{
 }
 
 .primary-btn{
-    background:var(--text);
-    color:white;
+    background:var(--button-bg, var(--text));
+    color:var(--button-text, white);
 }
 
 .primary-btn:hover{
@@ -319,7 +368,7 @@ body.dark::before{
 }
 
 .secondary-btn:hover{
-    background:#F3F4F6;
+    background:var(--soft-surface, #F3F4F6);
 }
 
 .hero-image{
@@ -524,7 +573,7 @@ body.dark::before{
 }
 
 .tech-item:hover {
-    background: #F3F4F6;
+    background: var(--soft-surface, #F3F4F6);
     transform: translateY(-5px);
 }
 
@@ -620,7 +669,7 @@ body.dark::before{
     justify-content:center;
     align-items:center;
     flex-shrink:0;
-    background:#EEF4FF;
+    background:var(--soft-surface-2, #EEF4FF);
     color:var(--primary);
     font-size:22px;
 }
@@ -811,7 +860,7 @@ body.dark::before{
     max-width:900px;
     height:600px;
 
-    background:#0F172A;
+    background:var(--terminal-bg, #0F172A);
     color:white;
 
     border-radius:18px;
@@ -841,7 +890,7 @@ body.dark::before{
     justify-content:space-between;
     align-items:center;
 
-    background:#1E293B;
+    background:var(--terminal-header, #1E293B);
 
     border-bottom:1px solid rgba(255,255,255,.08);
 }
@@ -916,7 +965,7 @@ body.dark::before{
 
     border-top:1px solid rgba(255,255,255,.08);
 
-    background:#111827;
+    background:var(--footer-bg, #111827);
 
     font-family:monospace;
 }
@@ -952,7 +1001,7 @@ body.dark::before{
 .footer{
     margin-top: 120px;
     padding: 70px 8% 35px;
-    background: #111827;
+    background: var(--footer-bg, #111827);
     color: white;
 }
 
@@ -967,7 +1016,7 @@ body.dark::before{
 }
 
 .footer-content p{
-    color: #D1D5DB;
+    color: var(--footer-text, #D1D5DB);
     line-height: 1.8;
 }
 
@@ -988,7 +1037,7 @@ body.dark::before{
 
     text-decoration: none;
     border-radius: 50%;
-    background: #1F2937;
+    background: var(--footer-surface, #1F2937);
     color: white;
 
     transition: 0.3s;
@@ -1008,7 +1057,7 @@ body.dark::before{
 
 .copyright{
     font-size: 15px;
-    color: #9CA3AF;
+    color: var(--footer-muted, #9CA3AF);
 }
 
 /* ================= TABLET ================= */
@@ -1036,7 +1085,7 @@ body.dark::before{
         width:100%;
         height:calc(100vh - 80px);
 
-        background:white;
+        background:var(--card);
 
         display:flex;
         flex-direction:column;
@@ -1877,3 +1926,66 @@ body.dark::before{
 
 }
 
+
+
+/* ================= DARK MODE OVERRIDES ================= */
+
+html.dark .available{
+    background:rgba(16,185,129,.12);
+    color:#86EFAC;
+}
+
+html.dark .hero-content h2{
+    color:var(--gray);
+}
+
+html.dark .ai-btn,
+html.dark .primary-btn,
+html.dark .contact-btn{
+    background:var(--button-bg);
+    color:var(--button-text);
+}
+
+html.dark .resume-btn:hover,
+html.dark .secondary-btn:hover,
+html.dark .tech-item:hover{
+    background:var(--soft-surface);
+}
+
+html.dark .contact-icon{
+    background:var(--soft-surface-2);
+}
+
+html.dark .footer{
+    background:var(--footer-bg);
+}
+
+html.dark .footer-content p{
+    color:var(--footer-text);
+}
+
+html.dark .footer-social a{
+    background:var(--footer-surface);
+}
+
+html.dark .copyright{
+    color:var(--footer-muted);
+}
+
+html.dark .terminal{
+    background:var(--terminal-bg);
+}
+
+html.dark .terminal-header{
+    background:var(--terminal-header);
+}
+
+html.dark .terminal-input{
+    background:var(--footer-bg);
+}
+
+@media(max-width:992px){
+    html.dark .nav-menu{
+        background:var(--card);
+    }
+}
