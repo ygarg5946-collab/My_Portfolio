@@ -1071,9 +1071,25 @@ html.dark body::before{
         z-index:1002;
     }
 
-    .nav-buttons{
-        display:none;
-    }
+    ..nav-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.resume-btn{
+    padding:10px 16px;
+    font-size:14px;
+}
+
+.theme-toggle{
+    width:42px;
+    height:42px;
+}
+
+.ai-btn{
+    padding:10px 14px;
+    font-size:14px;
+}
 
     .nav-menu{
 
