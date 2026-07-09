@@ -123,6 +123,43 @@ let commandHistory = [];
 
 let historyIndex = -1;
 
+/* ==========================================
+   AI CONVERSATION MEMORY
+========================================== */
+
+let aiConversation = [];
+
+function getAiContext(){
+
+    return aiConversation
+        .slice(-6)
+        .map(item => `${item.role === "user" ? "User" : "Assistant"}: ${item.text}`)
+        .join("\n");
+
+}
+
+function buildGeminiMessage(message){
+
+    const context = getAiContext();
+
+    if(!context){
+
+        return message;
+
+    }
+
+    return `Conversation Context:
+
+${context}
+
+Current User Message:
+
+${message}
+
+If the current message is a follow-up like "tell me more", "continue", "in detail", "about that", "how does it work", assume it refers to the previous topic.`;
+
+
+}
 
 /* ==========================================
    AI TERMINAL
@@ -374,7 +411,7 @@ async function askGemini(message){
 
             body:JSON.stringify({
 
-                message:message
+                 message:buildGeminiMessage(message)
 
             })
 
@@ -516,11 +553,13 @@ async function runCommand(command){
 
     if(command==="clear"){
 
-        terminalBody.innerHTML="";
+    terminalBody.innerHTML="";
 
-        return;
+    aiConversation=[];
 
-    }
+    return;
+
+}
 
     /* ---------- Local Commands ---------- */
 
@@ -555,6 +594,22 @@ async function runCommand(command){
     addLine("Thinking...");
 
     const reply = await askGemini(command);
+
+    aiConversation.push({
+
+    role:"user",
+
+    text:command
+
+});
+
+aiConversation.push({
+
+    role:"assistant",
+
+    text:reply
+
+});
 
     terminalBody.lastChild.remove();
 
