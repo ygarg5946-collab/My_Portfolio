@@ -76,7 +76,7 @@ app.post("/chat", async (req, res) => {
 
                 topP: 0.8,
 
-                maxOutputTokens: 350
+                maxOutputTokens: 1000
 
             }
 
